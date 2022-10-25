@@ -16,7 +16,7 @@ const Home = () => {
                             </span>
                         </h2>
                         <p className="text-base text-gray-700 md:text-lg">
-                            The online learning industry is growing by 15% annually.As technology and internet access becomes available to more people, e-Learning is quickly becoming the preferred way to learn.
+                            The online learning industry is growing by 15% annually. As technology and internet access becomes available to more people, e-Learning is quickly becoming the preferred way to learn.
                         </p>
                     </div>
                     <hr className="mb-6 border-gray-300" />
