@@ -1,19 +1,59 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
+    const { providerGoogleLogin,createUserEmail } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerGoogleLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(name, photoURL, email, password);
+
+        createUserEmail(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+    }
+
     return (
         <div>
             <div className="flex flex-col items-center mt-8 sm:justify-center sm:pt-0">
                 <div className="w-full px-6  overflow-hidden bg-slate-200 shadow-lg sm:max-w-lg sm:rounded-lg">
                     <div>
-                        <a href="/">
-                            <h3 className="text-4xl font-bold text-center text-slate-600 py-2">
+                        <Link >
+                            <p className="text-4xl font-bold text-center text-slate-600 py-2">
                                 Register
-                            </h3>
-                        </a>
+                            </p>
+                        </Link>
                     </div>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div>
                             <label
                                 htmlFor="name"
@@ -25,6 +65,21 @@ const Register = () => {
                                 <input
                                     type="text"
                                     name="name"
+                                    className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-md focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                />
+                            </div>
+                        </div>
+                        <div className="mt-2">
+                            <label
+                                htmlFor="photoURL"
+                                className="block text-sm font-medium text-gray-700 undefined"
+                            >
+                                Photo URL
+                            </label>
+                            <div className="flex flex-col items-start">
+                                <input
+                                    type="url"
+                                    name="photoURL"
                                     className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-md focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 />
                             </div>
@@ -83,10 +138,10 @@ const Register = () => {
                         <hr className="w-full" />
                     </div>
                     <div className="flex my-4 gap-x-2">
-                        <button
+                        <button onClick={handleGoogleSignIn}
                             name='google'
                             type="button"
-                            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
+                            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-slate-600"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +153,7 @@ const Register = () => {
                         </button>
                         <button
                             name='github'
-                            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
+                            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-slate-600">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 32 32"
@@ -107,7 +162,7 @@ const Register = () => {
                                 <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
                             </svg>
                         </button>
-                        <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
+                        <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-slate-600">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 32 32"

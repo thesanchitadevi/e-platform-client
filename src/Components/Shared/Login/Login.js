@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+    /* const { logInUser } = useContext(AuthContext);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password);
+
+        logInUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+ */
     return (
         <div className="relative flex flex-col justify-center mt-8 overflow-hidden">
             <div className="w-full p-3 m-auto bg-slate-200 rounded-md shadow-xl lg:max-w-xl">
                 <h1 className="text-3xl font-bold text-center text-slate-700 ">
                     Log in
                 </h1>
-                <form className="mt-3">
+                <form  className="mt-3">
                     <div className="mb-2">
                         <label
                             htmlFor="email"

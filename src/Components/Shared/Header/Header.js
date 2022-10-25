@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import Toggle from '../Toggle/Toggle';
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
+
+    const { user, providerSignOut } = useContext(AuthContext);
+    console.log(user);
+
+    const handleSignOut = () => {
+        providerSignOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     return (
         <nav className="w-full bg-slate-200 shadow-lg">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-2 md:py-5 md:block">
-                        <Link className='flex' to='/'>
+                        <Link className='flex' to='/'>                       
                             <img className='h-9'
-                                src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-E-alphabet-others-inmotus-design-13.png" />
+                                src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-E-alphabet-others-inmotus-design-13.png" alt="..."/>
                             <h2 className="text-3xl font-bold text-slate-800">
                                 -Platform
                             </h2>
@@ -75,12 +86,41 @@ const Header = () => {
                             <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/blog'>Blog</Link>
                             </li>
-                            <li className=" text-slate-900 hover:text-slate-700">
-                                <Link to='/login'>Login</Link>
-                            </li>
-                            <li className=" text-slate-900 hover:text-slate-700">
-                                <Link to='/register'>Register</Link>
-                            </li>
+                            <div className="flex space-x-2">
+
+                                <li>
+                                    {
+                                        user?.uid ?
+                                            <div className='flex space-x-2'>
+                                                <button className= "text-slate-900 hover:text-slate-700" onClick={handleSignOut}>Sign Out</button>
+                                                <Link className='font-semibold px-2 text-slate-900'>{user?.displayName}</Link>
+
+                                            </div>
+                                            :
+                                            <div className='flex'>
+                                                <li className=" text-slate-900 hover:text-slate-700 pr-5">
+                                                    <Link to='/login'>Log in</Link>
+                                                </li>
+                                                <li className=" text-slate-900 hover:text-slate-700">
+                                                    <Link to='/register'>Register</Link>
+                                                </li>
+                                            </div>
+                                    }
+                                </li>
+                                <li >
+                                    <div>
+                                        {
+                                            user?.photoURL ?
+                                                <img alt="" src={user?.photoURL} className="w-6 h-6 rounded-full" />
+                                                :
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6  text-slate-900">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                </svg>
+
+                                        }
+                                    </div>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
