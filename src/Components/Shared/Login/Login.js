@@ -4,7 +4,7 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    /* const { logInUser } = useContext(AuthContext);
+    const { logInUser } = useContext(AuthContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -25,14 +25,14 @@ const Login = () => {
                 console.error(error);
             })
     }
- */
+
     return (
         <div className="relative flex flex-col justify-center mt-8 overflow-hidden">
             <div className="w-full p-3 m-auto bg-slate-200 rounded-md shadow-xl lg:max-w-xl">
                 <h1 className="text-3xl font-bold text-center text-slate-700 ">
                     Log in
                 </h1>
-                <form  className="mt-3">
+                <form onSubmit={handleSubmit} className="mt-3">
                     <div className="mb-2">
                         <label
                             htmlFor="email"

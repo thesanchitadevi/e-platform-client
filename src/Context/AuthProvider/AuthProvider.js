@@ -12,9 +12,9 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
     /* google signin */
-   /*  const providerGoogleLogin = (provider) => {
+    const providerGoogleLogin = (provider) => {
         return signInWithPopup(auth,provider)
-    } */
+    }
 
 
     /* email signin */
@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
-       
+        providerGoogleLogin,
         createUserEmail,
         providerSignOut,
         logInUser,
