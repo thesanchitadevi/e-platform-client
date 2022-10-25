@@ -38,7 +38,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="px-5 pt-6 pb-5 text-center border border-gray-300 rounded lg:w-2/5">
-                    <img src="/src/assests/header.png" alt="" />
+                    <img className="object-cover w-full h-56 rounded shadow-lg sm:h-96" src="https://previews.123rf.com/images/vitechek/vitechek2009/vitechek200900034/155784890-e-learning-online-education-at-home-modern-vector-illustration-concepts-for-website-and-mobile-websi.jpg" alt="" />
                </div>
             </div>
         </div>
