@@ -13,15 +13,18 @@ const LeftNav = () => {
     }, [])
 
     return (
-        <div className='text-center'>
-            <h1 className='mb-2 text-xl font-semibold'>All Category : {categories.length}</h1>
-            {
-                categories.map(category => <p
-                    key={category.id}
-                >               
-                    <Link to={`/category/${category.id}`}>{category.name}</Link>
-                </p>)
-            }
+        <div className='border text-center'>
+            <h1 className='text-2xl font-bold text-center  text-slate-800 '>Total Course : {categories.length}</h1>
+            <div className='m-5'>
+                {
+                    categories.map(category => <p className='py-2'
+                        key={category.id}
+                        category={category}
+                    >
+                        <Link className='py-2 text-xl text-slate-600 font-bold' to={`/category/${category.id}`}>{category.name}</Link>
+                    </p>)
+                }
+            </div>
         </div>
     );
 };

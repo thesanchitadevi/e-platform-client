@@ -5,12 +5,14 @@ const Header = () => {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <nav className="w-full bg-slate-300 shadow-lg">
+        <nav className="w-full bg-slate-200 shadow-lg">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-2 md:py-5 md:block">
                         <Link to='/'>
-                            <h2 className="text-2xl font-bold text-amber-900">Wizard Platform</h2>
+                            <h2 className="text-3xl font-bold text-slate-800">
+                                <img src="/public/images/E-learn.png" alt="" srcset="" />
+                                E-Platform</h2>
                         </Link>
                         <div className="md:hidden">
                             <button
@@ -56,19 +58,22 @@ const Header = () => {
                             }`}
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0  text-gray-300 ">
-                            <li className=" text-amber-900 hover:text-amber-700">
+                            <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/'>Home</Link>
                             </li>
-                            <li className=" text-amber-900 hover:text-amber-700">
-                                <Link to='/category/:id'>Category</Link>
-                            </li>
-                            <li className=" text-amber-900 hover:text-amber-700">
+                            <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/courses/:id'>Courses</Link>
                             </li>                           
-                            <li className=" text-amber-900 hover:text-amber-700">
+                            <li className=" text-slate-900 hover:text-slate-700">
+                                <Link to='/faq'>Faq</Link>
+                            </li>                           
+                            <li className=" text-slate-900 hover:text-slate-700">
+                                <Link to='/blog'>Blog</Link>
+                            </li>                           
+                            <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/login'>Login</Link>
                             </li>                           
-                            <li className=" text-amber-900 hover:text-amber-700">
+                            <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/register'>Register</Link>
                             </li>                           
                         </ul>
