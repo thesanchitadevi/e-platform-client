@@ -10,10 +10,12 @@ const Header = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-2 md:py-5 md:block">
-                        <Link to='/'>
+                        <Link className='flex' to='/'>
+                            <img className='h-9'
+                                src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-E-alphabet-others-inmotus-design-13.png" />
                             <h2 className="text-3xl font-bold text-slate-800">
-                                <img src="/public/images/E-learn.png" alt="" srcset="" />
-                                E-Platform</h2>
+                                -Platform
+                            </h2>
                         </Link>
                         <div className="md:hidden">
                             <button
@@ -53,32 +55,32 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div>
                     <div
                         className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
-                    }`}
+                            }`}
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0  text-gray-300 ">
-                        <Toggle></Toggle>
+                            <Toggle></Toggle>
                             <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/'>Home</Link>
                             </li>
                             <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/courses/:id'>Courses</Link>
-                            </li>                           
+                            </li>
                             <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/faq'>Faq</Link>
-                            </li>                           
+                            </li>
                             <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/blog'>Blog</Link>
-                            </li>                           
+                            </li>
                             <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/login'>Login</Link>
-                            </li>                           
+                            </li>
                             <li className=" text-slate-900 hover:text-slate-700">
                                 <Link to='/register'>Register</Link>
-                            </li>                           
+                            </li>
                         </ul>
                     </div>
                 </div>
