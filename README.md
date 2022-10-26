@@ -28,3 +28,4 @@ Server Side :[https://github.com/programming-hero-web-course1/b610-lerning-platf
 * to purchase single course category you have to register to the site
 * To preview course details you can download the pdf
 * Only after verification of your email you can sign in to the site
+* selected course purchase will direct you to that specific course checkout page
