@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CourseCard = ({ course }) => {
     console.log(course);
@@ -28,7 +29,7 @@ const CourseCard = ({ course }) => {
                             {rating.number}
                         </h1>
                     </div>
-                    <button className="text-lg font-medium text-slate-200 transition-colors duration-300 transform">Check Out</button>
+                    <Link to='/checkout' className="text-lg font-medium text-slate-200 transition-colors duration-300 transform">Purchase</Link>
                 </div>
             </div>
         </div>

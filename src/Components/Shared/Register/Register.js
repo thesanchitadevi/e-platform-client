@@ -5,7 +5,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { providerGoogleLogin, createUserEmail } = useContext(AuthContext);
+    const { providerGoogleLogin, createUserEmail, updateUserProfile } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -14,6 +14,7 @@ const Register = () => {
 
     const from = location.state?.from?.pathname || '/'
 
+    /* google sign in */
     const handleGoogleSignIn = () => {
         providerGoogleLogin(googleProvider)
             .then(result => {
@@ -26,6 +27,7 @@ const Register = () => {
             })
     }
 
+    /* email */
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -44,6 +46,8 @@ const Register = () => {
                 setError('');
                 form.reset();
                 navigate(from, { replace: true });
+                /* update profile */
+                updateUserProfile(name, photoURL);
             })
             .catch(error => {
                 console.error(error);
@@ -51,7 +55,7 @@ const Register = () => {
             })
 
     }
-
+    
     return (
         <div>
             <div className="flex flex-col items-center mt-8 sm:justify-center sm:pt-0">

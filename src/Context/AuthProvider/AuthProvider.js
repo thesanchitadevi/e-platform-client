@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import { useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup, updateProfile } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 import { useEffect } from 'react';
 
@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
     /* google sign in */
     const providerGoogleLogin = (provider) => {
         setLoading(true);
-        return signInWithPopup(auth,provider)
+        return signInWithPopup(auth, provider)
     }
 
     /* email sign in */
@@ -28,17 +28,26 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
-    
+
     /* sign out */
     const providerSignOut = () => {
         setLoading(true);
         return signOut(auth);
     }
 
+    /* display name and photo */
+    const updateUserProfile = (name, photoURL) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL
+        })
+    }
+
+
     /* observer */
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log('state changes',currentUser);
+            console.log('state changes', currentUser);
             setUser(currentUser);
             setLoading(false);
         })
@@ -46,15 +55,16 @@ const AuthProvider = ({ children }) => {
         return () => {
             unsubscribe();
         }
-    },[])
+    }, [])
 
     const authInfo = {
         user,
+        loading,
         providerGoogleLogin,
         createUserEmail,
         providerSignOut,
         logInUser,
-        loading
+        updateUserProfile
     }
 
     return (
