@@ -8,13 +8,13 @@ const Profile = () => {
 
     return (
         <div>
-            <div className="flex flex-col justify-center w-9/12 mx-auto max-w-xs p-6 shadow-md rounded-xl sm:px-12 bg-gray-900 text-gray-100 mt-5">
+            <div className="flex flex-col justify-center w-9/12 mx-auto max-w-xs p-6 shadow-lg rounded-xl sm:px-12 bg-slate-200 text-gray-100 mt-5">
                 <img src={user.photoURL
                 } alt="" className="w-32 h-32 mx-auto rounded-full bg-gray-500 aspect-square" />
                 <div className="space-y-4 text-center divide-y divide-gray-700">
                     <div className="my-2 space-y-1">
-                        <h2 className="text-xl font-semibold sm:text-2xl">{user.displayName}</h2>
-                        <p className="px-5 text-xs sm:text-base text-gray-400">Email Address : <br/> {user.email}</p>
+                        <h2 className="text-xl font-semibold sm:text-2xl text-slate-800">{user.displayName}</h2>
+                        <p className="px-5 text-xs sm:text-base text-slate-800">Email Address : <br/> {user.email}</p>
                     </div>
                 </div>
             </div>

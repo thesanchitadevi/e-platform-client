@@ -5,7 +5,8 @@ import LeftNav from '../Shared/LeftNav/LeftNav';
 
 const Category = () => {
     const courses = useLoaderData();
-    console.log(courses.length);
+    // console.log(courses.length);
+    
     return (
         <div className='grid lg:grid-cols-3 sm:grid-rows-1 my-10'>
             <div>

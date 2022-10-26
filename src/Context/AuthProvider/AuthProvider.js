@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     /* google sign in */
-    const providerGoogleLogin = (provider) => {
+    const providerLogIn = (provider) => {
         setLoading(true);
         return signInWithPopup(auth, provider)
     }
@@ -65,9 +65,10 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
+        setUser,
         loading,
         setLoading,
-        providerGoogleLogin,
+        providerLogIn,
         createUserEmail,
         providerSignOut,
         logInUser,

@@ -21,9 +21,9 @@ const Header = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-2 md:py-5 md:block">
-                        <NavLink className='flex' to='/'>                       
+                        <NavLink className='flex' to='/'>
                             <img className='h-9'
-                                src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-E-alphabet-others-inmotus-design-13.png" alt="..."/>
+                                src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-E-alphabet-others-inmotus-design-13.png" alt="..." />
                             <h2 className="text-3xl font-bold text-slate-800">
                                 -Platform
                             </h2>
@@ -116,7 +116,7 @@ const Header = () => {
                                     {
                                         user?.uid ?
                                             <div className='flex space-x-2'>
-                                                <button className= "text-slate-900 hover:text-slate-700 font-medium" onClick={handleSignOut}>Sign Out</button>
+                                                <button className="text-slate-900 hover:text-slate-700 font-medium" onClick={handleSignOut}>Sign Out</button>
                                                 <p className='font-semibold pl-2 text-lg text-slate-900'>{user?.displayName}</p>
 
                                             </div>
@@ -145,8 +145,10 @@ const Header = () => {
                                     <div>
                                         {
                                             user?.photoURL ?
-                                                <NavLink to='/profile'>
-                                                    <img alt="" src={user?.photoURL} className="w-7 h-7  border rounded-full border-slate-800 border-1 " />
+                                                <NavLink className="group flex relative" to='/profile'>
+                                                    <span><img alt="" src={user?.photoURL} className="w-7 h-7  border rounded-full border-slate-800 border-1 " /></span>
+                                                    <span class="group-hover:opacity-100 transition-opacity bg-slate-300 px-5 text-sm text-slate-800 rounded-md absolute left-1/2 
+                                                    -translate-x-1/2 translate-y-full opacity-0 m-2 mx-auto">{user?.displayName}</span>
                                                 </NavLink>
                                                 :
                                                 <NavLink to='/profile'>

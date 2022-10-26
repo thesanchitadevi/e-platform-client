@@ -1,32 +1,52 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import toast from 'react-hot-toast';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { providerGoogleLogin, createUserEmail, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const { providerLogIn, createUserEmail, setUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const navigate = useNavigate();
     const location = useLocation();
 
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/';
 
     /* google sign in */
     const handleGoogleSignIn = () => {
-        providerGoogleLogin(googleProvider)
+        providerLogIn(googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
 
             })
     }
+
+    /* github sign in */
+    const handleGithubSignIn = () => {
+        providerLogIn(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setUser(user);
+                if (user.displayName) {
+                    navigate(from, { replace: true });
+                }
+            })
+            .catch(error => {
+                console.error(error);
+
+            })
+    }
+
 
     /* email */
     const handleSubmit = (event) => {
@@ -186,7 +206,7 @@ const Register = () => {
                                 <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
                             </svg>
                         </button>
-                        <button
+                        <button onClick={handleGithubSignIn}
                             name='github'
                             className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-slate-600">
                             <svg
