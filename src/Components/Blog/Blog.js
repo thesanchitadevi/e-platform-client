@@ -28,10 +28,7 @@ const Blog = () => {
                 </summary>
 
                 <p className="mt-4 leading-relaxed text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
-                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
-                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
-                    earum similique!
+                    Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
                 </p>
             </details>
 
@@ -60,10 +57,16 @@ const Blog = () => {
                 </summary>
 
                 <p className="mt-4 leading-relaxed text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
-                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
-                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
-                    earum similique!
+                    Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
+                    <br />
+                    Others User Authentication Platforms [Auth0, Firebase Alternatives] <br />
+                    STYTCH. <br />
+                    Ory. <br />
+                    Supabase. <br />
+                    Okta. <br />
+                    PingIdentity. <br />
+                    Keycloak. <br />
+                    Frontegg.
                 </p>
             </details>
             <details className="group border-l-4 border-slate-500 bg-gray-50 p-6">
@@ -91,10 +94,7 @@ const Blog = () => {
                 </summary>
 
                 <p className="mt-4 leading-relaxed text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
-                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
-                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
-                    earum similique!
+                    The private route component is similar to the public route, the only change is that redirect URL and authenticate condition.If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).
                 </p>
             </details>
             <details className="group border-l-4 border-slate-500 bg-gray-50 p-6">
@@ -121,11 +121,8 @@ const Blog = () => {
                     </span>
                 </summary>
 
-                <p className="mt-4 leading-relaxed text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
-                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
-                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
-                    earum similique!
+                <p className="mt-4 leading-relaxed text-gray-700">      
+                    Node is a used as backend service where javascript works on the server-side of the application. Node. js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive. Working of Node.
                 </p>
             </details>
         </div>
