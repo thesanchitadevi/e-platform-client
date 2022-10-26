@@ -3,21 +3,21 @@ A learning platform where you can develop your skill.
 
 # Github Links
 
-Client Side : (https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-thesanchitadevi)[https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-thesanchitadevi]
+Client Side : [https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-thesanchitadevi] (https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-thesanchitadevi)
 
-Server Side :(https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-thesanchitadevi)[https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-thesanchitadevi]
+Server Side :[https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-thesanchitadevi] (https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-thesanchitadevi)
 
 # Live Link
 
 # CSS Component
 
-(Tailwind)[https://tailwindcss.com/]
+[Tailwind](https://tailwindcss.com/)
 
 # React Components
 
-(React-hot-toast)[https://react-hot-toast.com/]
-(heroicon)[https://heroicons.com/]
-(react-to-pdf)[https://www.npmjs.com/package/react-to-pdf]
+[React-hot-toast](https://react-hot-toast.com/)
+[heroicon](https://heroicons.com/)
+[react-to-pdf](https://www.npmjs.com/package/react-to-pdf)
 
 # What is in this web app
 
