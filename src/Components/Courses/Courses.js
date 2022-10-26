@@ -31,7 +31,7 @@ const Courses = () => {
                                         <span className="py-2 font-bold tracking-wide text-center text-slate-800 uppercase dark:text-white">{category.name}</span>
                                     </Link>
 
-                                    <button className="flex items-center justify-between px-4 py-2 bg-slate-200 dark:bg-slate-700">
+                                    <button className="flex items-center justify-between px-4 py-2 bg-slate-200 w-full">
                                         <p className="px-2 py-1 text-xs font-semibold text-slate-900 uppercase transition-colors duration-300 transform">Download Course Details
                                         </p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
