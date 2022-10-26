@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Nav, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import Toggle from '../Toggle/Toggle';
 
@@ -21,13 +21,13 @@ const Header = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-2 md:py-5 md:block">
-                        <Link className='flex' to='/'>                       
+                        <NavLink className='flex' to='/'>                       
                             <img className='h-9'
                                 src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-E-alphabet-others-inmotus-design-13.png" alt="..."/>
                             <h2 className="text-3xl font-bold text-slate-800">
                                 -Platform
                             </h2>
-                        </Link>
+                        </NavLink>
                         <div className="md:hidden">
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -75,16 +75,40 @@ const Header = () => {
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0  text-gray-300 ">
                             <Toggle></Toggle>
                             <li className=" text-slate-900 hover:text-slate-700">
-                                <Link to='/'>Home</Link>
+                                <NavLink to='/home'
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? 'font-medium tracking-wide text-slate-500 transition-colors duration-200 hover:text-deep-purple-accent-400 underline'
+                                            : 'font-medium tracking-wide text-slate-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                    }
+                                >Home</NavLink>
                             </li>
                             <li className=" text-slate-900 hover:text-slate-700">
-                                <Link to='/courses/:id'>Courses</Link>
+                                <NavLink to='/courses/:id'
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? 'font-medium tracking-wide text-slate-500 transition-colors duration-200 hover:text-deep-purple-accent-400 underline'
+                                            : 'font-medium tracking-wide text-slate-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                    }
+                                >Courses</NavLink>
                             </li>
                             <li className=" text-slate-900 hover:text-slate-700">
-                                <Link to='/faq'>Faq</Link>
+                                <NavLink to='/faq'
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? 'font-medium tracking-wide text-slate-500 transition-colors duration-200 hover:text-deep-purple-accent-400 underline'
+                                            : 'font-medium tracking-wide text-slate-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                    }
+                                >Faq</NavLink>
                             </li>
                             <li className=" text-slate-900 hover:text-slate-700">
-                                <Link to='/blog'>Blog</Link>
+                                <NavLink to='/blog'
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? 'font-medium tracking-wide text-slate-500 transition-colors duration-200 hover:text-deep-purple-accent-400 underline'
+                                            : 'font-medium tracking-wide text-slate-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                    }
+                                >Blog</NavLink>
                             </li>
                             <div className="flex space-x-2">
 
@@ -93,16 +117,26 @@ const Header = () => {
                                         user?.uid ?
                                             <div className='flex space-x-2'>
                                                 <button className= "text-slate-900 hover:text-slate-700" onClick={handleSignOut}>Sign Out</button>
-                                                <Link to='/profile' className='font-semibold pl-2 text-lg text-slate-900'>{user?.displayName}</Link>
+                                                <NavLink to='/profile' className='font-semibold pl-2 text-lg text-slate-900'>{user?.displayName}</NavLink>
 
                                             </div>
                                             :
                                             <div className='flex'>
                                                 <li className=" text-slate-900 hover:text-slate-700 pr-5">
-                                                    <Link to='/login'>Log in</Link>
+                                                    <NavLink to='/login'
+                                                        className={({ isActive }) =>
+                                                            isActive
+                                                                ? 'font-medium tracking-wide text-slate-500 transition-colors duration-200 hover:text-deep-purple-accent-400 underline'
+                                                                : 'font-medium tracking-wide text-slate-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                        }>Log in</NavLink>
                                                 </li>
                                                 <li className=" text-slate-900 hover:text-slate-700">
-                                                    <Link to='/register'>Register</Link>
+                                                    <NavLink to='/register'
+                                                        className={({ isActive }) =>
+                                                            isActive
+                                                                ? 'font-medium tracking-wide text-slate-500 transition-colors duration-200 hover:text-deep-purple-accent-400 underline'
+                                                                : 'font-medium tracking-wide text-slate-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                        }>Register</NavLink>
                                                 </li>
                                             </div>
                                     }
