@@ -1,18 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CourseCard = ({ course }) => {
-    console.log(course);
-    const { details, image_url, rating, title, total_download } = course;
+
+
+const CourseCard = ({ course, exampleRef }) => {
+    // console.log(course);
+
+    const { details, image_url, rating, title } = course;
+
     return (
         <div>
             <div className="max-w-xs overflow-hidden bg-slate-200 rounded-lg shadow-lg dark:bg-gray-800">
                 <div className="px-4 py-2">
                     <h1 className="text-xl font-bold text-slate-800 uppercase dark:text-white">{title}</h1>
-                    <div className="mt-1 text-sm text-slate-600 dark:text-gray-400">
+                    <div ref={exampleRef} className="mt-1 text-sm text-slate-600 dark:text-gray-400">
                         {details.length > 200 ?
                             <p>{details.slice(0, 120) + '...'} </p> :
-                            <p> {details}</p>
+                            <p > {details}</p>
                         }
                     </div>
                 </div>
