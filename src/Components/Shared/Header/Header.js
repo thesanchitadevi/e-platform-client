@@ -116,7 +116,7 @@ const Header = () => {
                                     {
                                         user?.uid ?
                                             <div className='flex space-x-2'>
-                                                <button className= "text-slate-900 hover:text-slate-700" onClick={handleSignOut}>Sign Out</button>
+                                                <button className= "text-slate-900 hover:text-slate-700 font-medium" onClick={handleSignOut}>Sign Out</button>
                                                 <NavLink to='/profile' className='font-semibold pl-2 text-lg text-slate-900'>{user?.displayName}</NavLink>
 
                                             </div>

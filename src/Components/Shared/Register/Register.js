@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from "firebase/auth";
+import toast from 'react-hot-toast';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { providerGoogleLogin, createUserEmail, updateUserProfile } = useContext(AuthContext);
+    const {user, providerGoogleLogin, createUserEmail, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -48,14 +49,33 @@ const Register = () => {
                 navigate(from, { replace: true });
                 /* update profile */
                 updateUserProfile(name, photoURL);
+                handleEmailVerification();
+                toast.success('Please to continue verify your email', {
+                    style: {
+                        border: '1px solid #713200',
+                        padding: '16px',
+                        color: '#713200',
+                    },
+                    iconTheme: {
+                        primary: '#713200',
+                        secondary: '#FFFAEE',
+                    },
+                })
             })
             .catch(error => {
                 console.error(error);
                 setError(error.message);
             })
-
     }
-    
+
+    const handleEmailVerification = () => {
+        verifyEmail()
+            .then(() => { })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
     return (
         <div>
             <div className="flex flex-col items-center mt-8 sm:justify-center sm:pt-0">
