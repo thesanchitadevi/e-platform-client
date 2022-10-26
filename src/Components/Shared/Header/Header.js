@@ -117,7 +117,7 @@ const Header = () => {
                                         user?.uid ?
                                             <div className='flex space-x-2'>
                                                 <button className= "text-slate-900 hover:text-slate-700 font-medium" onClick={handleSignOut}>Sign Out</button>
-                                                <NavLink to='/profile' className='font-semibold pl-2 text-lg text-slate-900'>{user?.displayName}</NavLink>
+                                                <p className='font-semibold pl-2 text-lg text-slate-900'>{user?.displayName}</p>
 
                                             </div>
                                             :
@@ -145,11 +145,15 @@ const Header = () => {
                                     <div>
                                         {
                                             user?.photoURL ?
-                                                <img alt="" src={user?.photoURL} className="w-7 h-7 rounded-full" />
+                                                <NavLink to='/profile'>
+                                                    <img alt="" src={user?.photoURL} className="w-7 h-7  border rounded-full border-slate-800 border-1 " />
+                                                </NavLink>
                                                 :
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6  text-slate-900">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                                </svg>
+                                                <NavLink to='/profile'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6  text-slate-900">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                    </svg>
+                                                </NavLink>
 
                                         }
                                     </div>

@@ -9,6 +9,7 @@ import Home from "../../Components/Home/Home";
 import Login from "../../Components/Shared/Login/Login";
 import Register from "../../Components/Shared/Register/Register";
 import Main from "../../Layout/Main";
+import Profile from "../../Components/Shared/Profile/Profile"
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const routes = createBrowserRouter([
@@ -57,6 +58,10 @@ const routes = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
+            {
+                path: '/profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            }
         ]
     }
 ])
