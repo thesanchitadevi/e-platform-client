@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const CourseCard = ({ course, exampleRef }) => {
     // console.log(course);
 
-    const { details, image_url, rating, title } = course;
+    const {_id, details, image_url, rating, title } = course;
 
     return (
         <div>
@@ -32,7 +32,7 @@ const CourseCard = ({ course, exampleRef }) => {
                             {rating.number}
                         </h1>
                     </div>
-                    <Link to='/checkout'  className="text-lg font-medium text-slate-200 transition-colors duration-300 transform"
+                    <Link to={`/checkout/${_id}`}  className="text-lg font-medium text-slate-200 transition-colors duration-300 transform"
                     >Purchase</Link>
 
                 </div>
