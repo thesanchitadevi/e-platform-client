@@ -8,6 +8,7 @@ import Home from "../../Components/Home/Home";
 import Login from "../../Components/Shared/Login/Login";
 import Register from "../../Components/Shared/Register/Register";
 import Main from "../../Layout/Main";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const routes = createBrowserRouter([
     {
@@ -22,7 +23,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <Category></Category>,
+                element: <PrivateRoute><Category></Category></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             {

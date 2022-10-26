@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
-    const { providerGoogleLogin,createUserEmail } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const { providerGoogleLogin, createUserEmail } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleGoogleSignIn = () => {
         providerGoogleLogin(googleProvider)
@@ -15,7 +21,8 @@ const Register = () => {
                 console.log(user);
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+
             })
     }
 
@@ -34,10 +41,13 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setError('');
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
+                setError(error.message);
             })
 
     }
@@ -94,7 +104,7 @@ const Register = () => {
                             <div className="flex flex-col items-start">
                                 <input
                                     type="email" name="email"
-                                    className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-md focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                    className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-md focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40" required
                                 />
                             </div>
                         </div>
@@ -108,7 +118,7 @@ const Register = () => {
                             <div className="flex flex-col items-start">
                                 <input
                                     type="password" name="password"
-                                    className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-md focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                    className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-md focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40" required
                                 />
                             </div>
                         </div>
@@ -118,7 +128,8 @@ const Register = () => {
                         >
                             Forget Password?
                         </Link>
-                        <div className="flex items-center mt-4">
+                        <div className="mt-4">
+                            <p className='text-md text-red-800 text-center'>{error}</p>
                             <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-slate-700 rounded-md hover:bg-slate-600 focus:outline-none focus:bg-slate-600">
                                 Register
                             </button>
