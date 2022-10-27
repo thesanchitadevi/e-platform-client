@@ -9,6 +9,8 @@ Server Side :[https://github.com/programming-hero-web-course1/b610-lerning-platf
 
 # Live Link
 
+[E-Platform](https://wizard-platform-client.web.app/)
+
 # CSS Component
 
 [Tailwind](https://tailwindcss.com/)
