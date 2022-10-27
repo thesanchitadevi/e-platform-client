@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Nav, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import Toggle from '../Toggle/Toggle';
+import ReactTooltip from "react-tooltip";
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
@@ -110,14 +111,13 @@ const Header = () => {
                                     }
                                 >Blog</NavLink>
                             </li>
-                            <div className="flex space-x-2">
+                            <div className="flex ">
 
                                 <li>
                                     {
                                         user?.uid ?
-                                            <div className='flex space-x-2'>
-                                                <button className="text-slate-900 hover:text-slate-700 font-medium" onClick={handleSignOut}>Sign Out</button>
-                                                <p className='font-semibold pl-2 text-lg text-slate-900'>{user?.displayName}</p>
+                                            <div >
+                                                <button className="text-slate-900 hover:text-slate-700 font-medium pr-3 pt-0.5" onClick={handleSignOut}>Sign Out</button>
 
                                             </div>
                                             :
@@ -145,10 +145,11 @@ const Header = () => {
                                     <div>
                                         {
                                             user?.photoURL ?
-                                                <NavLink className="group flex relative" to='/profile'>
-                                                    <span><img alt="" src={user?.photoURL} className="w-7 h-7  border rounded-full border-slate-800 border-1 " /></span>
-                                                    <span class="group-hover:opacity-100 transition-opacity bg-slate-300 px-5 text-sm text-slate-800 rounded-md absolute left-1/2 
-                                                    -translate-x-1/2 translate-y-full opacity-0 m-2 mx-auto">{user?.displayName}</span>
+                                                <NavLink className="group flex relative" to='/profile' data-tip data-for='global'>
+                                                    <img alt="" src={user?.photoURL} className="w-7 h-7  border rounded-full border-slate-800 border-1 " />
+                                                    <ReactTooltip id='global' ariaHaspopup='true' role='example' >
+                                                        <span>{user?.displayName}</span>
+                                                    </ReactTooltip>
                                                 </NavLink>
                                                 :
                                                 <NavLink to='/profile'>

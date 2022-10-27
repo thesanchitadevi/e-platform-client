@@ -20,6 +20,7 @@ const Category = () => {
                         courses.map(course => <CourseCard
                             key={course._id}
                             course={course}
+                            
                         >
                         </CourseCard>)
                     }

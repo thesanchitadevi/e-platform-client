@@ -19,25 +19,24 @@ const Courses = () => {
     }, [])
     return (
         <div className='grid lg:grid-cols-3 sm:grid-rows-1 my-10'>
-            <div>
+            <div ref={exampleRef}>
                 <LeftNav></LeftNav>
             </div>
-            <div className='lg:col-span-2 text-center '>
+            <div  className='lg:col-span-2 text-center '>
                 <div className='grid lg:grid-cols-2 gap-4 w-10/12 mx-auto pt-5'>
                     {
-                        categories.map(category => <p className='py-2'
+                        categories.map(category => <p  className='py-2'
                             key={category.id}
                             category={category}
+                            
                         >
                             {/* Each Course name with image */}
-                            <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto shadow-lg">
+                            <div  className="flex flex-col items-center justify-center w-full max-w-sm mx-auto shadow-lg">
                                 <div  className="w-full h-60 bg-slate-300 bg-center bg-cover rounded-lg shadow-md" ><img src={category.image_url} alt="" className='h-60 w-full' /></div>
 
                                 <div  className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-slate-800">
 
-                                    <Link className='py-2 text-xl text-slate-800 font-bold' to={`/category/${category.id}`}
-                                    
-                                        ref={exampleRef}
+                                    <Link  className='py-2 text-xl text-slate-800 font-bold' to={`/category/${category.id}`}
                                     >
                                         <span  className="py-2 font-bold tracking-wide text-center text-slate-800 uppercase dark:text-white">{category.name}</span>
                                     </Link>
