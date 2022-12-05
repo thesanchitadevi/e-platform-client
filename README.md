@@ -3,9 +3,10 @@ A learning platform where you can develop your skill.
 
 # Github Links
 
-Client Side : [https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-thesanchitadevi](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-thesanchitadevi)
 
-Server Side :[https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-thesanchitadevi](https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-thesanchitadevi)
+Client Side : [https://github.com/thesanchitadevi/e-platform-client](https://github.com/thesanchitadevi/e-platform-client)
+
+Server Side :[https://github.com/thesanchitadevi/e-platform-server](https://github.com/thesanchitadevi/e-platform-server)
 
 # Live Link
 
